@@ -3,4 +3,6 @@
     <string name="question_text">Canberra is the capital of Australia</string>
     <string name="true_btn">TRUE</string>
     <string name="false_btn">FALSE</string>
+    <string name="correct_toast">Correct!</string>
+    <string name="incorrect_toast">Incorrect!</string>
 </resources>
