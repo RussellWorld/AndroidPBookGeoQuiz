@@ -2,11 +2,13 @@ package com.example.geoquiz
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.Toast.*
+
+private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG, "onCreate(Bundle?) called")
         setContentView(R.layout.activity_main)
 
         trueButton = findViewById(R.id.true_btn)
@@ -45,22 +48,48 @@ class MainActivity : AppCompatActivity() {
         }
         nextButton.setOnClickListener {
             currentIndex = (currentIndex + 1) % questionBank.size
-            updateQustion()
+            updateQuestion()
         }
         questionTextView.setOnClickListener {
             currentIndex = (currentIndex + 1) % questionBank.size
-            updateQustion()
+            updateQuestion()
         }
 
         backButton.setOnClickListener {
             currentIndex = (currentIndex - 1) % questionBank.size
-            updateQustion()
+            updateQuestion()
         }
 
-        updateQustion()
+        updateQuestion()
     }
 
-    private fun updateQustion() {
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart() called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume() called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause() called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop() called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy() called")
+    }
+
+
+    private fun updateQuestion() {
         val questionTextResId = questionBank[currentIndex].textResId
         questionTextView.setText(questionTextResId)
     }
