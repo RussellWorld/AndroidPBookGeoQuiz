@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast.*
 import androidx.lifecycle.ViewModelProvider
+import java.lang.Exception
 
 private const val TAG = "MainActivity"
 private const val KEY_INDEX = "index"
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             checkAnswer(false)
         }
         nextButton.setOnClickListener {
-            quizViewModel.moveToNext()
+           quizViewModel.moveToNext()
             updateQuestion()
         }
         questionTextView.setOnClickListener {
